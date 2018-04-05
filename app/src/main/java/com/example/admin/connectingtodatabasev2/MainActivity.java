@@ -1,7 +1,9 @@
 package com.example.admin.connectingtodatabasev2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -45,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 retrieveData.execute("");
             }
         });
+    }
+
+    public void showMyList(View view){
+        Intent startIntent = new Intent(getApplicationContext(), MonsterListActivity.class);
+        startIntent.putExtra("SOMETHING", "YO!"); //Putting information from one screen to another
+        startActivity(startIntent);
     }
 
     private class GetData extends AsyncTask<String,String,String>{
