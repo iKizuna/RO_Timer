@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Context thisContext;
     ListView myListView;
     TextView progressTextView;
-    Map<String, Double> fruitsMap = new LinkedHashMap<String, Double>();
+    Map<String, String> fruitsMap = new LinkedHashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +70,16 @@ public class MainActivity extends AppCompatActivity {
                 conn = DriverManager.getConnection(DB_URL, DbStrings.USERNAME, DbStrings.PASSWORD);
 
                 stmt = conn.createStatement();
-                String sql = "SELECT * FROM fruits";
+                String sql = "SELECT * FROM potwory";
                 ResultSet rs = stmt.executeQuery(sql);
 
                 while(rs.next()){
-                    String name = rs.getString("name");
-                    double price = rs.getDouble("price");
+                    String name = rs.getString("Nazwa");
+                    String map = rs.getString("Lokacja");
+                    String timer = rs.getString("Timer");
 
-                    fruitsMap.put(name, price);
+                    fruitsMap.put(name, map);
+                    fruitsMap.put(name, timer);
                 }
 
                 msg = "Process complete.";

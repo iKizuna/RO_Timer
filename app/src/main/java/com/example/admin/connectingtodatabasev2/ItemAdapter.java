@@ -18,15 +18,17 @@ import java.util.Map;
 public class ItemAdapter extends BaseAdapter {
 
     LayoutInflater mInflator;
-    Map<String, Double> map;
+    Map<String, String> map;
     List<String> names;
-    List<Double> prices;
+    List<String> maps;
+    List<String> timers;
 
     public ItemAdapter (Context c, Map m){
         mInflator = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         map = m;
         names = new ArrayList<String>(map.keySet());
-        prices = new ArrayList<Double>(map.values());
+        maps = new ArrayList<String>(map.keySet());
+        timers = new ArrayList<String>(map.values());
     }
 
     @Override
@@ -49,10 +51,12 @@ public class ItemAdapter extends BaseAdapter {
 
         View v = mInflator.inflate(R.layout.item_layout, null);
         TextView nameTextView = (TextView) v.findViewById(R.id.nameTextView);
-        TextView priceTextView = (TextView) v.findViewById(R.id.priceTextView);
+        TextView mapTextView = (TextView) v.findViewById(R.id.mapTextView);
+        TextView timerTextView = (TextView) v.findViewById(R.id.timerTextView);
 
         nameTextView.setText(names.get(position));
-        priceTextView.setText("$" + prices.get(position).toString());
+        mapTextView.setText(maps.get(position));
+        timerTextView.setText(timers.get(position));
 
         return v;
     }
