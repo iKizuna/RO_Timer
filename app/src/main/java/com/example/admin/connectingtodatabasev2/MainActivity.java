@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -48,12 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 retrieveData.execute("");
             }
         });
-    }
 
-    public void showMyList(View view){
-        Intent startIntent = new Intent(getApplicationContext(), MonsterListActivity.class);
-        startIntent.putExtra("SOMETHING", "YO!"); //Putting information from one screen to another
-        startActivity(startIntent);
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, itemAdapter.maps.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private class GetData extends AsyncTask<String,String,String>{

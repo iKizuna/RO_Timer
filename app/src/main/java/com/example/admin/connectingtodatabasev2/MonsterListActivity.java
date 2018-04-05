@@ -16,7 +16,7 @@ public class MonsterListActivity extends AppCompatActivity {
 
         if(getIntent().hasExtra("SOMETHING"))
         {
-            TextView tv = (TextView) findViewById(R.id.textView);
+            TextView tv = (TextView) findViewById(R.id.nameTextView);
             String text = getIntent().getExtras().getString("SOMETHING");
             tv.setText(text);
         }
