@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Context thisContext;
     ListView myListView;
     TextView progressTextView;
-    Map<String, String> fruitsMap = new LinkedHashMap<>();
+    Map<String, MyMap> fruitsMap = new LinkedHashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     String map = rs.getString("Lokacja");
                     String timer = rs.getString("Timer");
 
-                    fruitsMap.put(name, map);
-                    fruitsMap.put(name, timer);
+                    MyMap myMap = new MyMap(name,map,timer);
+                    fruitsMap.put("somethink", myMap);
                 }
 
                 msg = "Process complete.";

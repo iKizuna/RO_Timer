@@ -23,7 +23,7 @@ import java.util.Map;
 public class ItemAdapter extends BaseAdapter{
 
     LayoutInflater mInflator;
-    Map<String, String> map;
+    Map<String, MyMap> map;
     List<String> names;
     List<String> maps;
     List<String> timers;
@@ -33,7 +33,7 @@ public class ItemAdapter extends BaseAdapter{
         map = m;
         names = new ArrayList<String>(map.keySet());
         maps = new ArrayList<String>(map.keySet());
-        timers = new ArrayList<String>(map.values());
+        timers = new ArrayList<String>(map.keySet());
     }
 
     @Override
