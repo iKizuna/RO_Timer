@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Context thisContext;
     ListView myListView;
     TextView progressTextView;
-    Map<String, MyMap> fruitsMap = new LinkedHashMap<>();
+    Map<String, MyMap> monstersMap = new LinkedHashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     String timer = rs.getString("Timer");
 
                     MyMap myMap = new MyMap(name,map,timer);
-                    fruitsMap.put("somethink", myMap);
+                    monstersMap.put(myMap.getName(), myMap);
                 }
 
                 msg = "Process complete.";
@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String msg){
             progressTextView.setText(this.msg);
 
-            if(fruitsMap.size()>0){
-                itemAdapter = new ItemAdapter(thisContext, fruitsMap);
+            if(monstersMap.size()>0){
+                itemAdapter = new ItemAdapter(thisContext, monstersMap);
                 myListView.setAdapter(itemAdapter);
             }
         }

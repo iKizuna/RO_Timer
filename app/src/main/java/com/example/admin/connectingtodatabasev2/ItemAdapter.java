@@ -24,6 +24,7 @@ public class ItemAdapter extends BaseAdapter{
 
     LayoutInflater mInflator;
     Map<String, MyMap> map;
+    List<MyMap> monstersList;
     List<String> names;
     List<String> maps;
     List<String> timers;
@@ -31,9 +32,11 @@ public class ItemAdapter extends BaseAdapter{
     public ItemAdapter (Context c, Map m){
         mInflator = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         map = m;
-        names = new ArrayList<String>(map.keySet());
+        monstersList = new ArrayList<MyMap>(map.values());
+        /*names = new ArrayList<String>(map.keySet());
         maps = new ArrayList<String>(map.keySet());
         timers = new ArrayList<String>(map.keySet());
+        */
     }
 
     @Override
@@ -59,9 +62,9 @@ public class ItemAdapter extends BaseAdapter{
         TextView mapTextView = (TextView) v.findViewById(R.id.mapTextView);
         TextView timerTextView = (TextView) v.findViewById(R.id.timerTextView);
 
-        nameTextView.setText(names.get(position));
-        mapTextView.setText(maps.get(position));
-        timerTextView.setText(timers.get(position));
+        nameTextView.setText(monstersList.get(position).getName());
+        mapTextView.setText(monstersList.get(position).getMap());
+        timerTextView.setText(monstersList.get(position).getTimer());
 
         return v;
     }
