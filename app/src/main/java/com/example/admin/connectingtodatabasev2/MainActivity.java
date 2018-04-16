@@ -53,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, itemAdapter.maps.get(position), Toast.LENGTH_SHORT).show();
+                Intent startIntent = new Intent(getApplicationContext(), MonsterListActivity.class);
+                startIntent.putExtra("a", itemAdapter.monstersList.get(position).getName()); //Putting information from one screen to another
+                startIntent.putExtra("b", itemAdapter.monstersList.get(position).getMap()); //Putting information from one screen to another
+                startIntent.putExtra("c", itemAdapter.monstersList.get(position).getTimer()); //Putting information from one screen to another
+                startActivity(startIntent);
             }
         });
     }
