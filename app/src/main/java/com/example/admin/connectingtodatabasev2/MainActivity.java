@@ -60,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+        Button btn2 = (Button) findViewById(R.id.monstersListButton);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), MonsterListActivity.class);
+                startActivity(startIntent);
+            }
+        });
     }
 
     private class GetData extends AsyncTask<String,String,String>{

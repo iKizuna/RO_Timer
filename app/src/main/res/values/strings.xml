@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ConnectingToDatabaseV2</string>
+
+    <string-array name="names">
+        <item>potwor1</item>
+        <item>potwor2</item>
+    </string-array>
+
+    <string-array name="maps">
+        <item>map1</item>
+        <item>map2</item>
+    </string-array>
+
+    <string-array name="timers">
+        <item>timer1</item>
+        <item>timer2</item>
+    </string-array>
 </resources>
