@@ -16,12 +16,12 @@ import java.util.Map;
 public class MonsterListActivity extends AppCompatActivity {
 
     ListView monstersListView;
-    //Map<String, String> myMonstersMap = new LinkedHashMap<>();
+    Map<String, MyMap> myMonstersMap = new LinkedHashMap<>();
+    /*
     String[] names;
     String[] maps;
     String[] timers;
-
-
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,32 +30,33 @@ public class MonsterListActivity extends AppCompatActivity {
         Resources res = getResources();
         monstersListView = (ListView) findViewById(R.id.monstersListView);
 
+        /*
         names = res.getStringArray(R.array.names);
         maps = res.getStringArray(R.array.maps);
         timers = res.getStringArray(R.array.timers);
+        */
 
-        monstersItemAdapter MonstersItemAdapter = new monstersItemAdapter(this, names, maps, timers);
+
+            TextView tv1 = (TextView) findViewById(R.id.nameTextView);
+            String name = getIntent().getExtras().getString("a");
+
+
+
+            TextView tv2 = (TextView) findViewById(R.id.mapTextView);
+            String map = getIntent().getExtras().getString("b");
+
+
+
+            TextView tv3 = (TextView) findViewById(R.id.timerTextView);
+            String timer = getIntent().getExtras().getString("c");
+            
+
+            MyMap myMap = new MyMap(name,map,timer);
+            myMonstersMap.put(myMap.getName(), myMap);
+
+
+        monstersItemAdapter MonstersItemAdapter = new monstersItemAdapter(this, myMonstersMap);
         monstersListView.setAdapter(MonstersItemAdapter);
 
-        /*
-        if(getIntent().hasExtra("a"))
-        {
-            TextView tv = (TextView) findViewById(R.id.nameTextView);
-            String text = getIntent().getExtras().getString("a");
-            tv.setText(text);
-        }
-        if(getIntent().hasExtra("b"))
-        {
-            TextView tv = (TextView) findViewById(R.id.mapTextView);
-            String text = getIntent().getExtras().getString("b");
-            tv.setText(text);
-        }
-        if(getIntent().hasExtra("c"))
-        {
-            TextView tv = (TextView) findViewById(R.id.timerTextView);
-            String text = getIntent().getExtras().getString("c");
-            tv.setText(text);
-        }
-        */
     }
 }

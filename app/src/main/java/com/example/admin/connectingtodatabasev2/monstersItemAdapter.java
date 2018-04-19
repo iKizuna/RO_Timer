@@ -18,33 +18,40 @@ import java.util.Map;
 public class monstersItemAdapter extends BaseAdapter {
 
     LayoutInflater mInflator;
-    //Map<String, MyMap> map;
-    //List<MyMap> myMonstersList;
+    Map<String, MyMap> map;
+    List<MyMap> myMonstersList;
+
+    /*
     String[] names;
     String[] maps;
     String[] timers;
+    */
 
-    public monstersItemAdapter(Context c, String[] n, String[] m, String[] t) {
+    List<String> names;
+    List<String> maps;
+    List<String> timers;
+
+    public monstersItemAdapter(Context c, Map m) {
         mInflator = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-       // map = m;
-      //  myMonstersList = new ArrayList<MyMap>(map.values());
+        map = m;
+        myMonstersList = new ArrayList<MyMap>(map.values());
+        /*
         names = n;
         maps = m;
         timers = t;
+        */
     }
 
     @Override
     public int getCount() {
-        return names.length;
+        return map.size();
     }
 
     @Override
-    public Object getItem(int position) {return names[position];}
+    public Object getItem(int position) {return names.get(position);}
 
     @Override
-    public long getItemId(int position) {
-        return position;
-    }
+    public long getItemId(int position) {return position;}
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
@@ -54,6 +61,7 @@ public class monstersItemAdapter extends BaseAdapter {
         TextView mapTextView = (TextView) v.findViewById(R.id.mapTextView);
         TextView timerTextView = (TextView) v.findViewById(R.id.timerTextView);
 
+        /*
         String name = names[position];
         String map = maps[position];
         String timer = timers[position];
@@ -61,10 +69,11 @@ public class monstersItemAdapter extends BaseAdapter {
         nameTextView.setText(name);
         mapTextView.setText(map);
         timerTextView.setText(timer);
+        */
 
-       // nameTextView.setText(myMonstersList.get(position).getName());
-        //mapTextView.setText(myMonstersList.get(position).getMap());
-        //timerTextView.setText(myMonstersList.get(position).getTimer());
+        nameTextView.setText(myMonstersList.get(position).getName());
+        mapTextView.setText(myMonstersList.get(position).getMap());
+        timerTextView.setText(myMonstersList.get(position).getTimer());
 
         return v;
     }
