@@ -48,7 +48,7 @@ public class monstersItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {return names.get(position);}
+    public Object getItem(int position) {return map.get(position);}
 
     @Override
     public long getItemId(int position) {return position;}

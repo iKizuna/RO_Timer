@@ -4,7 +4,27 @@
 
     <ListView
         android:id="@+id/monstersListView"
+        android:layout_width="wrap_content"
+        android:layout_height="380dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/getDataButton"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/getDataButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="My favourite" />
+
+    <TextView
+        android:id="@+id/progressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/getDataButton"
+        android:layout_centerHorizontal="true"
+        android:text="progress" />
 
 </RelativeLayout>
