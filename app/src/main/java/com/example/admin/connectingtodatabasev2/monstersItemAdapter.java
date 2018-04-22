@@ -21,12 +21,6 @@ public class monstersItemAdapter extends BaseAdapter {
     Map<String, MyMap> map;
     List<MyMap> myMonstersList;
 
-    /*
-    String[] names;
-    String[] maps;
-    String[] timers;
-    */
-
     List<String> names;
     List<String> maps;
     List<String> timers;
@@ -35,11 +29,6 @@ public class monstersItemAdapter extends BaseAdapter {
         mInflator = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         map = m;
         myMonstersList = new ArrayList<MyMap>(map.values());
-        /*
-        names = n;
-        maps = m;
-        timers = t;
-        */
     }
 
     @Override
@@ -56,7 +45,7 @@ public class monstersItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
-        View v = mInflator.inflate(R.layout.item_layout, null);
+        View v = mInflator.inflate(R.layout.monsters_item_adapter_layout, null);
         TextView nameTextView = (TextView) v.findViewById(R.id.nameTextView);
         TextView mapTextView = (TextView) v.findViewById(R.id.mapTextView);
         TextView timerTextView = (TextView) v.findViewById(R.id.timerTextView);

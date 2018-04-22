@@ -88,8 +88,6 @@ public class MonsterListActivity extends AppCompatActivity {
 
                 stmt = conn.createStatement();
                 String query1 = "INSERT INTO my_favourite (Nazwa, Lokacja, Timer) VALUES ('"+names+"','"+maps+"','"+timers+"')";
-                //String query2 = "INSERT INTO my_favourite (Lokacja) VALUES ('"+maps+"')";
-                //String query3 = "INSERT INTO my_favourite (Timer)VALUES ('"+timers+"')";
                 stmt.executeUpdate(query1);
 
                 String sql = "SELECT * FROM my_favourite";
