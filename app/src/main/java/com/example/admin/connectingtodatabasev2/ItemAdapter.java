@@ -60,11 +60,15 @@ public class ItemAdapter extends BaseAdapter{
         View v = mInflator.inflate(R.layout.item_layout, null);
         TextView nameTextView = (TextView) v.findViewById(R.id.nameTextView);
         TextView mapTextView = (TextView) v.findViewById(R.id.mapTextView);
+        TextView locationTextView = (TextView) v.findViewById(R.id.locationTextView);
         TextView timerTextView = (TextView) v.findViewById(R.id.timerTextView);
+        TextView maxTimeTextView = (TextView) v.findViewById(R.id.maxTimeTextView);
 
         nameTextView.setText(monstersList.get(position).getName());
         mapTextView.setText(monstersList.get(position).getMap());
+        locationTextView.setText(monstersList.get(position).getLocation());
         timerTextView.setText(monstersList.get(position).getTimer());
+        maxTimeTextView.setText("~ " + monstersList.get(position).getMaxTime());
 
         return v;
     }

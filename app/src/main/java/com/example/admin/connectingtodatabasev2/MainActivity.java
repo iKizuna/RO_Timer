@@ -56,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), MonsterListActivity.class);
                 startIntent.putExtra("a", itemAdapter.monstersList.get(position).getName()); //Putting information from one screen to another
                 startIntent.putExtra("b", itemAdapter.monstersList.get(position).getMap()); //Putting information from one screen to another
-                startIntent.putExtra("c", itemAdapter.monstersList.get(position).getTimer()); //Putting information from one screen to another
+                startIntent.putExtra("c", itemAdapter.monstersList.get(position).getLocation()); //Putting information from one screen to another
+                startIntent.putExtra("d", itemAdapter.monstersList.get(position).getTimer()); //Putting information from one screen to another
+                startIntent.putExtra("e", itemAdapter.monstersList.get(position).getMaxTime()); //Putting information from one screen to another
                 startActivity(startIntent);
             }
         });
@@ -99,10 +101,12 @@ public class MainActivity extends AppCompatActivity {
 
                 while(rs.next()){
                     String name = rs.getString("Nazwa");
-                    String map = rs.getString("Lokacja");
+                    String map = rs.getString("Mapa");
+                    String location = rs.getString("Lokacja");
                     String timer = rs.getString("Timer");
+                    String maxTime = rs.getString("MaxTime");
 
-                    MyMap myMap = new MyMap(name,map,timer);
+                    MyMap myMap = new MyMap(name, map, location, timer, maxTime);
                     monstersMap.put(myMap.getName(), myMap);
                 }
 
